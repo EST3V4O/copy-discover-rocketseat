@@ -1,3 +1,5 @@
+/* Globals ---------------- */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,73 +9,79 @@
 body {
     color: rgb(168, 168, 179);
     background-color: rgb(18, 18, 20);
-    font: 1.6rem Roboto, BlinkMacSystemFont, "Segoe UI";
-}
-
-input {
-    width: 100%;
-    height: 50px;
-    font-size: 16px;
-    background: rgb(18, 18, 20);
-    border: 2px solid rgb(18, 18, 20);
-    color: rgb(255, 255, 255);
-    padding: 0px 1em 0px 2.65em;
-    border-radius: 5px;
-    outline: 0px;
-}
-
-main {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: Roboto, BlinkMacSystemFont, "Segoe UI";
 }
 
 .container {
-    width: 90%;
-    height: 70%;
-    margin: 0 15%;
+    width: 100%;
+    height: 100vh;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
 }
 
-#intro div{
-    margin-bottom: 60px;
+/* Login -------------- */
+
+#login {
+    display: flex;
+    width: 70%;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+#intro {
+    /* width: 100%; */
+    /* margin: 0 auto; */
+}
+
+#intro div {
+    margin-bottom: 40px;
 }
 
 #intro h1 {
-    font-size: 3.5rem;
     color: rgb(225, 225, 230);
+    font-size: 3.2rem;
 }
 
-#login {
-    background: rgb(32, 32, 36);
-    padding: 60px;
+#form-login {
     width: 100%;
     max-width: 480px;
+    background: rgb(32, 32, 36);
+    height: 75%;
+    min-height: 480px;
+    padding: 60px;
     border-radius: 5px;
 }
 
-#login form {
+#field-group {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.input-group {
     display: grid;
     grid-auto-flow: row;
     gap: 10px;
 }
 
-.input {
+.field {
     position: relative;
-    flex: 1 1 0%;
 }
 
-.input svg {
+.field input {
+    background: rgb(18, 18, 20);
+    border: 2px solid rgb(18, 18, 20);
+    width: 100%;
+    height: 50px;
+    outline: 0px;
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    padding: 0px 1rem 0px 2.5rem;
+    border-radius: 5px;
+}
+
+.field input:focus{
+    border: 2px solid rgb(130, 87, 230);
+}
+
+.field svg {
     position: absolute;
     left: 16px;
     top: calc(50% - 8px);
@@ -82,114 +90,119 @@ main {
     transition: fill 0.2s ease 0s;
 }
 
-.input svg:last-child {
-    left: calc(90% - 4px);
-    font-size: 18px;
-    fill: rgb(130, 87, 229);
+.field:focus-within > svg{
+    fill: rgb(130, 87, 229);  
 }
 
-.input:focus-within > svg {
-    fill: rgb(130, 87, 229);
+#show-password svg{
+   position: absolute;
+   font-size: 16px;
+   left: calc(100% - 32px);
+   fill: rgb(130, 87, 229);
+   cursor: pointer;
 }
 
-#email:focus, #password:focus {
-    border: 2px solid rgb(130, 87, 229);
-}
-
-a {
+.link-login {
+    color: rgb(130, 87, 230);
     font-size: 14px;
-    font-weight: 600;
-    
-    opacity: 0.8;
     text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    margin: 0.5rem 0 1rem 0;
+    opacity: 0.8;
     transition: opacity 0.2s ease 0s;
-    margin: 10px 0px 20px;
-    align-self: flex-start;
 }
 
-a:hover {
-    color: rgb(130, 87, 229);
+.link-login:hover {
     opacity: 1;
 }
 
 .button {
-    background: rgb(130, 87, 229);
-    color: rgb(255, 255, 255);;
-    border: 0px;
-    border-radius: 5px;
+    width: 100%;
+}
+
+.button-submit {
+    width: 100%;
     height: 50px;
-    font-size: 16px;
+    border-radius: 5px;
+    border: 0px;
+    outline: 0px;
+    background: rgb(130, 87, 229);
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    font-weight: 600;
     text-transform: uppercase;
     transition: background 0.2s ease 0s, color 0.2s ease 0s;
-    outline: 0px;
     cursor: pointer;
 }
 
-.button:hover {
+.button-submit:hover {
     background: rgb(168, 131, 255);
 }
 
+.button-submit:disabled {
+    background: rgb(65, 53, 107);
+    color: rgba(255, 255, 255, 0.35);
+    cursor: not-allowed;
+}
+
 #sign-up {
-    font-size: 15px;
     text-align: center;
-    padding: 20px 0px;
-    border-bottom: 1px solid rgb(40, 39, 47);
-    margin-bottom: 20px;
-}
-
-#sign-in-github {
+    padding: 20px 0 10px 0;
     font-size: 14px;
-    color: rgb(225, 225, 230);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border-bottom: 1px solid rgb(40, 39, 47);
+    margin-bottom: 30px;
 }
 
-#sign-in-github div{
-    width: 45%;
+#sign-in-with-github {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-.button-github {
-    color: rgb(225, 225, 255);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0px 10px;
+#sign-in-with-github div {
+    margin-right: 1rem;
+    white-space: nowrap;
+}
+
+#sign-in-with-github a {
     width: 100%;
     background: rgb(41, 41, 46);
     height: 50px;
-    font-size: 19px;
-    border-radius: 4px;
+    border-radius: 5px;
+    border: 0px;
     outline: 0px;
-    transition: background 0.2s ease 0s;
-}
-
-.button-github > svg{
-    color: rgb(130, 87, 229);
-    margin-right: 10px;
-    transition: all 0.2s ease 0s;
-}
-
-.button-github:hover {
-    background: rgb(130, 87, 229);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
     color: #fff;
+    transition: background 0.2s ease 0s, color 0.2s ease 0s;
 }
 
-.button-github:hover > svg{
-    color: #fff;
+#sign-in-with-github a svg {
+    margin-right: 0.7rem;
+    fill: rgb(130, 87, 229);
 }
 
-@media (max-width: 1210px){
-    .container {
+#sign-in-with-github:hover a {
+    background: rgb(168, 131, 255);
+}
+
+#sign-in-with-github:hover a svg {
+    fill: #fff;
+}
+
+@media (max-width: 1160px) {
+    #login {
         flex-direction: column;
     }
     #intro {
-        margin-bottom: 20px;
-    }
-    #intro h1 {
-        font-size: 2.8rem;
-    }
-    #login {
-        padding: 30px;
+        margin-bottom: 30px;
+        max-width: 480px;
     }
 }
