@@ -1,5 +1,13 @@
 /* Globals ---------------- */
 
+:root {
+    --backgorund-gray: rgb(32, 32, 36);
+    --text-light-color: rgb(168, 168, 179);
+    --text-white-color: rgb(255, 255, 255);
+    --color-primary: rgb(130, 87, 230);
+    --color-secondary: rgb(168, 131, 255);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,9 +15,14 @@
 }
 
 body {
-    color: rgb(168, 168, 179);
-    background-color: rgb(18, 18, 20);
+    color: var(--text-light-color);
+    background: rgb(18, 18, 20);
     font-family: Roboto, BlinkMacSystemFont, "Segoe UI";
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
 }
 
 .container {
@@ -18,6 +31,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+input {
+    background: rgb(18, 18, 20);
+    border: 2px solid rgb(18, 18, 20);
+    height: 50px;
+    outline: 0px;
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    width: 100%;
+    padding: 0px 1rem 0px 2.5rem;
+    border-radius: 5px;
 }
 
 /* Login -------------- */
@@ -31,7 +56,7 @@ body {
 }
 
 #intro {
-    /* width: 100%; */
+    width: 100%;
     /* margin: 0 auto; */
 }
 
@@ -47,14 +72,13 @@ body {
 #form-login {
     width: 100%;
     max-width: 480px;
-    background: rgb(32, 32, 36);
-    height: 75%;
+    background: var(--backgorund-gray);
     min-height: 480px;
     padding: 60px;
     border-radius: 5px;
 }
 
-#field-group {
+.field-group {
     width: 100%;
     display: grid;
     grid-auto-flow: row;
@@ -65,20 +89,8 @@ body {
     position: relative;
 }
 
-.field input {
-    background: rgb(18, 18, 20);
-    border: 2px solid rgb(18, 18, 20);
-    width: 100%;
-    height: 50px;
-    outline: 0px;
-    color: rgb(255, 255, 255);
-    font-size: 1rem;
-    padding: 0px 1rem 0px 2.5rem;
-    border-radius: 5px;
-}
-
 .field input:focus{
-    border: 2px solid rgb(130, 87, 230);
+    border: 2px solid var(--color-primary);
 }
 
 .field svg {
@@ -90,7 +102,7 @@ body {
     transition: fill 0.2s ease 0s;
 }
 
-.field:focus-within > svg{
+.field:focus-within > svg {
     fill: rgb(130, 87, 229);  
 }
 
@@ -103,7 +115,7 @@ body {
 }
 
 .link-login {
-    color: rgb(130, 87, 230);
+    color: var(--color-primary);
     font-size: 14px;
     text-decoration: none;
     font-weight: 600;
@@ -127,7 +139,7 @@ body {
     border-radius: 5px;
     border: 0px;
     outline: 0px;
-    background: rgb(130, 87, 229);
+    background: var(--color-primary);
     color: rgb(255, 255, 255);
     font-size: 1rem;
     font-weight: 600;
@@ -137,7 +149,7 @@ body {
 }
 
 .button-submit:hover {
-    background: rgb(168, 131, 255);
+    background: var(--color-secondary);
 }
 
 .button-submit:disabled {
@@ -180,7 +192,7 @@ body {
     font-size: 1.2rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: #fff;
+    color: var(--text-white-color);
     transition: background 0.2s ease 0s, color 0.2s ease 0s;
 }
 
@@ -190,12 +202,53 @@ body {
 }
 
 #sign-in-with-github:hover a {
-    background: rgb(168, 131, 255);
+    background: var(--color-secondary);
 }
 
 #sign-in-with-github:hover a svg {
-    fill: #fff;
+    fill: var(--text-white-color);
 }
+
+/* Forgot --------------- */
+
+#forgot {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#forgot h1 {
+    color: var(--text-white-color);
+    margin-bottom: 2rem;
+}
+
+#form-recover-password {
+    width: 70%;
+    max-width: 320px;
+}
+
+#form-recover-password .field-group {
+    gap: 20px;
+}
+
+.field input {
+    background: rgb(23, 23, 26);
+    border-color: rgb(40, 39, 44);
+}
+
+#form-recover-password small a{
+    margin-top: 1.2rem;
+    display: inline-block;
+    color: var(--text-light-color);
+}
+
+#form-recover-password small a:hover {
+    text-decoration: underline;
+}
+
 
 @media (max-width: 1160px) {
     #login {
