@@ -17,7 +17,7 @@
 body {
     color: var(--text-light-color);
     background: rgb(18, 18, 20);
-    font-family: Roboto, BlinkMacSystemFont, "Segoe UI";
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 a {
@@ -27,7 +27,6 @@ a {
 
 .container {
     width: 100%;
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,24 +46,23 @@ input {
 
 /* Login -------------- */
 
-#login {
+.container-space-between {
     display: flex;
     width: 70%;
     align-items: center;
     justify-content: space-between;
-    height: 100%;
+    min-height: 100vh;
 }
 
-#intro {
+.intro {
     width: 100%;
-    /* margin: 0 auto; */
 }
 
-#intro div {
+.intro div {
     margin-bottom: 40px;
 }
 
-#intro h1 {
+.intro h1 {
     color: rgb(225, 225, 230);
     font-size: 3.2rem;
 }
@@ -89,7 +87,11 @@ input {
     position: relative;
 }
 
-.field input:focus{
+.field input {
+    border-color: rgb(18, 18, 20);
+}
+
+.field input:focus, #forgot-email:focus{
     border: 2px solid var(--color-primary);
 }
 
@@ -114,18 +116,21 @@ input {
    cursor: pointer;
 }
 
-.link-login {
+.link {
     color: var(--color-primary);
     font-size: 14px;
     text-decoration: none;
     font-weight: 600;
     display: inline-block;
-    margin: 0.5rem 0 1rem 0;
     opacity: 0.8;
     transition: opacity 0.2s ease 0s;
 }
 
-.link-login:hover {
+#form-login a {
+    margin: 0.5rem 0 1rem 0;
+}
+
+.link:hover {
     opacity: 1;
 }
 
@@ -170,7 +175,7 @@ input {
     display: flex;
     width: 100%;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 #sign-in-with-github div {
@@ -201,7 +206,7 @@ input {
     fill: rgb(130, 87, 229);
 }
 
-#sign-in-with-github:hover a {
+#sign-in-with-github a:hover {
     background: var(--color-secondary);
 }
 
@@ -234,7 +239,7 @@ input {
     gap: 20px;
 }
 
-.field input {
+#forgot-email {
     background: rgb(23, 23, 26);
     border-color: rgb(40, 39, 44);
 }
@@ -249,12 +254,107 @@ input {
     text-decoration: underline;
 }
 
+/* Signup ------------- */
+
+#create-account {
+    width: 100%;
+    margin-top: 3.5rem;
+    margin-bottom: 5rem;
+}
+
+#create-account nav ul {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 420px;
+    padding-left: 60px;
+}
+
+#create-account nav {
+    margin-bottom: 25px;
+}
+
+#create-account nav ul li{
+    padding-bottom: 20px;
+}
+
+#create-account nav ul li a {
+    color: inherit;
+}
+
+#create-account nav ul li:last-child {
+    margin-left: 30px;
+}
+
+#create-account nav ul li.active {
+    font-weight: bold;
+    border-bottom: 2px solid var(--color-primary);
+    color: #fff;
+}
+
+#signup-student {
+    width: 100%;
+    max-width: 450px;
+    background: var(--backgorund-gray);
+    min-height: 480px;
+    padding: 60px;
+    border-radius: 5px;
+}
+
+#signup-student h1 {
+    color: var(--text-white-color);
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+#re-captcha{
+    margin: 1.2rem auto 0;
+}
+
+#signup-student form p {
+    margin: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+}
+
+#create-account + .intro {
+    padding-left: 6rem;
+}
+
+#create-account + .intro h1 {
+    font-size: 2.3rem;
+    margin-bottom: 2.7rem;
+}
+
+#create-account + .intro p {
+    margin-bottom: 2.7rem;
+    line-height: 1.7rem;
+}
+
+#create-account + .intro div {
+    display: inline-block;
+}
+
+#create-account + .intro a {
+    display: flex;
+    align-items: center;
+}
+
+#create-account + .intro a > svg {
+    margin-right: 1rem;
+}
+
+/* @Medias -------------- */
+
 
 @media (max-width: 1160px) {
-    #login {
+    .container-space-between {
         flex-direction: column;
     }
-    #intro {
+    .intro {
         margin-bottom: 30px;
         max-width: 480px;
     }
