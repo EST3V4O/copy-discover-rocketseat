@@ -44,6 +44,7 @@ input {
     border-radius: 5px;
 }
 
+
 /* Login -------------- */
 
 .container-space-between {
@@ -56,6 +57,7 @@ input {
 
 .intro {
     width: 100%;
+    padding-right: 1.5rem;
 }
 
 .intro div {
@@ -89,6 +91,10 @@ input {
 
 .field input {
     border-color: rgb(18, 18, 20);
+}
+
+#forgot {
+    height: 100vh;
 }
 
 .field input:focus, #forgot-email:focus{
@@ -204,13 +210,16 @@ input {
 #sign-in-with-github a svg {
     margin-right: 0.7rem;
     fill: rgb(130, 87, 229);
+    transition: fill 0.2s ease 0s, color 0.2s ease 0s;
 }
+
+
 
 #sign-in-with-github a:hover {
     background: var(--color-secondary);
 }
 
-#sign-in-with-github:hover a svg {
+#sign-in-with-github a:hover svg {
     fill: var(--text-white-color);
 }
 
@@ -294,7 +303,7 @@ input {
     color: #fff;
 }
 
-#signup-student {
+.form-account {
     width: 100%;
     max-width: 450px;
     background: var(--backgorund-gray);
@@ -303,7 +312,7 @@ input {
     border-radius: 5px;
 }
 
-#signup-student h1 {
+.form-account h1 {
     color: var(--text-white-color);
     font-size: 1.5rem;
     margin-bottom: 40px;
@@ -313,7 +322,7 @@ input {
     margin: 1.2rem auto 0;
 }
 
-#signup-student form p {
+.form-account form p {
     margin: 20px 0;
     text-align: center;
     font-size: 0.9rem;
@@ -350,12 +359,35 @@ input {
 /* @Medias -------------- */
 
 
-@media (max-width: 1160px) {
+@media (max-width: 900px) {
     .container-space-between {
         flex-direction: column;
+        
     }
+
     .intro {
         margin-bottom: 30px;
-        max-width: 480px;
+        /* max-width: 480px; */
+        padding-right: 0;
+        order: 1;
+    }
+
+    #form-login {
+        order: 2;
+    }
+
+    #create-account + .intro {
+        padding: 2rem 0 0 0;
+        margin: 0;
+    }
+
+    #create-account {
+        order: 2;
+        margin: 0;
     }
 }
+
+/* @media (max-width: 1160px) {
+    
+
+} */
